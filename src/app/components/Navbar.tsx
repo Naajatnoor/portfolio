@@ -91,6 +91,8 @@ export default function Navbar() {
               </Link>
             ))}
 
+            
+
             <Link
               href="#contact"
               onClick={() => setIsOpen(false)}

@@ -1,10 +1,13 @@
 import React from 'react';
 import Hero from './components/Banner';
+import About from './components/about';
 
 const page = () => {
   return (
     <div>
       <Hero/>
+    <About/>
+    
     </div>
   );
 };
