@@ -25,7 +25,7 @@ export default function Navbar() {
           href="#home"
           className="text-2xl font-bold tracking-tight text-white"
         >
-          Najat<span className="text-blue-500"> </span>Noor
+          N A J A T<span className="text-blue-500"> <span className="ml-1 h-1.5 w-1.5 animate-pulse rounded-full bg-blue-700" /></span>N O O R
             </Link>
        </div>
            <div className="hero-enter inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-md">
