@@ -1,26 +1,173 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Smooth entrance */
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero-enter {
+  animation: hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+.hero-delay-1 {
+  animation-delay: 100ms;
+}
+
+.hero-delay-2 {
+  animation-delay: 220ms;
+}
+
+.hero-delay-3 {
+  animation-delay: 340ms;
+}
+
+.hero-delay-4 {
+  animation-delay: 460ms;
+}
+
+/* Animated silver gradient */
+@keyframes digital-shine {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 100% center;
+  }
+}
+
+.digital-animate {
+  background-size: 200% auto;
+  animation:
+    hero-enter 1s cubic-bezier(0.22, 1, 0.36, 1) both,
+    digital-shine 4s ease-in-out 1s infinite alternate;
+}
+
+/* Background glow */
+@keyframes hero-glow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate3d(-30px, 20px, 0) scale(1.12);
+    opacity: 1;
+  }
+}
+
+.hero-glow {
+  animation: hero-glow 8s ease-in-out infinite;
+}
+
+/* Floating monogram */
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+.hero-float {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+/* Rotating ring */
+@keyframes hero-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-orbit {
+  animation: hero-orbit 35s linear infinite;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .digital-animate,
+  .hero-glow,
+  .hero-float,
+  .hero-orbit {
+    animation: none !important;
+    filter: none;
+  }
+}
+
+
+/* Floating cards */
+@keyframes code-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+.code-float {
+  animation: code-float 4s ease-in-out infinite;
+}
+
+.code-float-delayed {
+  animation: code-float 5s ease-in-out 1s infinite;
+}
+
+/* Code lines appear */
+@keyframes code-line-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.code-line-enter {
+  animation: code-line-enter 350ms ease-out both;
+}
+
+/* Blinking cursor */
+@keyframes typing-cursor {
+  0%, 45% {
+    opacity: 1;
+  }
+  46%, 100% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  animation: typing-cursor 900ms step-end infinite;
+}
+
+/* Subtle editor float */
+@media (prefers-reduced-motion: reduce) {
+  .code-float,
+  .code-float-delayed,
+  .code-line-enter,
+  .typing-cursor {
+    animation: none !important;
+  }
+}
+
