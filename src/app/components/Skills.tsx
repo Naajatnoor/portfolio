@@ -86,7 +86,7 @@ export default function Skills() {
 
           <h2 className=" text-blue-600 text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl">
             Skills &{" "}
-            <span className="text-blue-200  opacity-15">Technologies.</span>
+            <span className="text-zinc-500">Technologies.</span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg">
@@ -166,7 +166,7 @@ export default function Skills() {
         >
           <div className="mb-6 flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05]">
-              <Wrench size={21} className="text-zinc-200" />
+              <Wrench size={21} className="text-blue-600" />
             </div>
 
             <div>

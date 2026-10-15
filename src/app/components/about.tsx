@@ -43,7 +43,7 @@ export default function About() {
 
           <h2 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl  text-blue-600">
             About{" "}
-            <span className="text-blue-200  opacity-15">Me.</span>
+            <span className="text-zinc-500 ">Me.</span>
           </h2>
 
           <p className="mt-6 max-w-xl text-base leading-8 text-zinc-400 sm:text-lg">
