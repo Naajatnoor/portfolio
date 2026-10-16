@@ -1,9 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  ArrowDownRight,
   ArrowUpRight,
   ArrowUp,
   Heart,
@@ -41,7 +41,11 @@ const socials = [
 ];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -51,7 +55,10 @@ export default function Footer() {
   };
 
   return (
-    <Footer className="relative overflow-hidden border-t border-zinc-200 bg-white">
+    <footer
+      id="contact-footer"
+      className="relative overflow-hidden bg-[#080808]"
+    >
       {/* Background decoration */}
       <div className="pointer-events-none absolute -left-40 top-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[100px]" />
       <div className="pointer-events-none absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-sky-400/10 blur-[100px]" />
@@ -63,30 +70,30 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="border-b border-zinc-200 py-16 sm:py-20"
+          className="relative py-16 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gradient-to-r after:from-transparent after:via-blue-500/40 after:to-transparent sm:py-20"
         >
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
+              <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-400">
                 <Sparkles size={15} />
                 Have an idea?
               </span>
 
-              <h2 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl">
+              <h2 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Let's build something
-                <span className="block text-blue-600">
+                <span className="block text-blue-500">
                   meaningful together.
                 </span>
               </h2>
 
-              <p className="mt-5 max-w-xl text-base leading-8 text-zinc-500">
+              <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
                 Have a project, an opportunity, or just want to connect?
                 My inbox is always open.
               </p>
             </div>
 
             <motion.a
-              href="mailto:naajatnoor@gmail.com"
+              href="#contact"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-blue-600 px-6 py-4 font-medium text-white shadow-lg shadow-blue-600/20 transition-colors hover:bg-blue-700"
@@ -117,32 +124,32 @@ export default function Footer() {
                 N.
               </span>
 
-              <span className="text-xl font-bold tracking-tight text-zinc-900">
+              <span className="text-xl font-bold tracking-tight text-zinc-200">
                 Najat Noor
-                <span className="text-blue-600">.</span>
+                <span className="text-blue-500">.</span>
               </span>
             </Link>
 
-            <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-500">
-              Computer Science student and aspiring frontend developer,
-              passionate about turning ideas into clean, meaningful digital
-              experiences.
+            <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-400">
+              Building modern, responsive, and user-friendly web experiences
+              with clean code, creative ideas, and a passion for continuous
+              learning.
             </p>
 
             {/* Availability */}
-            <div className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2.5">
+            <div className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2.5">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-50" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-600" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500" />
               </span>
 
-              <span className="text-xs font-medium text-zinc-600">
+              <span className="text-xs font-medium text-zinc-300">
                 Open to opportunities
               </span>
             </div>
 
-            <div className="mt-5 flex items-center gap-2 text-sm text-zinc-500">
-              <MapPin size={16} className="text-blue-600" />
+            <div className="mt-5 flex items-center gap-2 text-sm text-zinc-400">
+              <MapPin size={16} className="text-blue-500" />
               Sylhet, Bangladesh
             </div>
           </motion.div>
@@ -154,7 +161,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-900">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-200">
               Explore
             </h3>
 
@@ -169,9 +176,9 @@ export default function Footer() {
                 >
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-blue-600"
+                    className="group inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-blue-400"
                   >
-                    <span className="h-1 w-1 rounded-full bg-zinc-300 transition-all group-hover:w-3 group-hover:bg-blue-600" />
+                    <span className="h-1 w-1 rounded-full bg-zinc-600 transition-all group-hover:w-3 group-hover:bg-blue-500" />
                     {link.name}
                   </Link>
                 </motion.li>
@@ -186,11 +193,11 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-900">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-200">
               Let's connect
             </h3>
 
-            <p className="mt-6 text-sm leading-7 text-zinc-500">
+            <p className="mt-6 text-sm leading-7 text-zinc-400">
               Follow my journey, explore my work, or reach out for a
               collaboration.
             </p>
@@ -205,14 +212,12 @@ export default function Footer() {
                     key={social.name}
                     href={social.href}
                     target={isExternal ? "_blank" : undefined}
-                    rel={
-                      isExternal ? "noopener noreferrer" : undefined
-                    }
+                    rel={isExternal ? "noopener noreferrer" : undefined}
                     aria-label={social.name}
                     title={social.name}
                     whileHover={{ y: -5, scale: 1.06 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-600 shadow-sm transition-colors hover:border-blue-200 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-600/20"
+                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-300 transition-colors hover:border-blue-500 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-600/20"
                   >
                     <Icon size={19} />
                   </motion.a>
@@ -222,7 +227,7 @@ export default function Footer() {
 
             <a
               href="mailto:naajatnoor@gmail.com"
-              className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700"
+              className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
             >
               naajatnoor@gmail.com
               <ArrowUpRight
@@ -234,40 +239,58 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col gap-5 border-t border-zinc-200 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-center text-xs leading-6 text-zinc-500 sm:text-left sm:text-sm">
-            © {currentYear}{" "}
-            <span className="font-medium text-zinc-800">
-              Najat Noor
+        <div className="flex flex-col gap-5 border-t border-zinc-800 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-center text-xs leading-6 text-zinc-400 sm:text-left sm:text-sm">
+            © {currentYear ?? "2026"}{" "}
+            <span className=" text-zinc-400">
+              Najat Noor. All rights reserved.
             </span>
-            . All rights reserved.
           </p>
 
-          <p className="flex items-center justify-center gap-1.5 text-xs text-zinc-500 sm:text-sm">
+          <p className="flex items-center justify-center gap-1.5 text-xs text-zinc-400 sm:text-sm">
             Crafted with
-            <Heart
-              size={14}
-              className="fill-blue-600 text-blue-600"
-            />
+            <motion.span
+              animate={{ scale: [1, 1.1, 1, 1.1, 1] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="inline-flex"
+            >
+              <Heart
+                size={14}
+                className="fill-blue-500 text-blue-500"
+              />
+            </motion.span>
             and a little creativity.
           </p>
 
+          {/* Back to top */}
           <motion.button
             type="button"
             onClick={scrollToTop}
-            whileHover={{ y: -4 }}
+            whileHover={{ y: -3, scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Back to top"
-            className="group mx-auto flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-600 transition-colors hover:border-blue-200 hover:text-blue-600 sm:mx-0"
+            className="group mx-auto flex items-center gap-3 rounded-full border border-zinc-700 bg-zinc-900 px-5 py-2.5 text-sm font-medium text-zinc-300 transition-colors hover:border-blue-500 hover:text-blue-400 sm:mx-0"
           >
             Back to top
-            <ArrowUp
-              size={16}
-              className="transition-transform group-hover:-translate-y-1"
-            />
+
+            <motion.span
+              animate={{ y: [0, -3, 0] }}
+              transition={{
+                duration: 1.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 transition-colors duration-300 group-hover:border-blue-500 group-hover:bg-blue-600 group-hover:text-white"
+            >
+              <ArrowUp size={16} />
+            </motion.span>
           </motion.button>
         </div>
       </div>
-    </Footer>
+    </footer>
   );
 }
