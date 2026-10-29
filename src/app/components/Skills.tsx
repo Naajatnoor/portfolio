@@ -12,6 +12,7 @@ import {
   Server,
 } from "lucide-react";
 
+
 const skillGroups = [
   {
     title: "Frontend Development",
@@ -29,19 +30,29 @@ const skillGroups = [
     number: "01",
   },
   {
-    title: "Database & Data",
-    description: "Working with data storage and database fundamentals.",
-    icon: Database,
-    skills: ["MongoDB"],
-    number: "02",
-  },
-  {
     title: "Authentication",
     description: "Exploring authentication and user session management.",
     icon: ShieldCheck,
     skills: ["Better Auth", "Sign In / Sign Up", "Session Management"],
+    number: "02",
+  },
+    {
+    title: "Database & Data",
+    description: "Working with data storage and database fundamentals.",
+    icon: Database,
+    skills: ["MongoDB"],
     number: "03",
   },
+  
+{
+  title: "Backend",
+  description: "Building server-side applications, working with APIs, and managing databases.",
+  icon: Server,
+  skills: ["Node.js", "Express.js", "MongoDB"],
+  number: "04",
+},
+
+   
 ];
 
 const tools = ["Git", "GitHub", "VS Code"];
@@ -55,7 +66,7 @@ const softSkills = [
   "Creative Thinking",
   "Self-Motivation",
   "Self-Management",
-  "Team Colaboration"
+ 
 ];
 
 export default function Skills() {

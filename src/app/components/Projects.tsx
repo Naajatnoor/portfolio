@@ -37,6 +37,45 @@ type Project = {
 
 const projects: Project[] = [
   {
+  title: "বাজার দর | BazarDor",
+  category: "Daily Market Price Tracker",
+  description:
+    "BazarDor is a responsive web application designed to help users in Bangladesh explore and compare the prices of essential daily products. Users can browse products by category, track price changes, compare market-wise pricing, and view product details through a simple and user-friendly interface.",
+  image: "/projects/bazar-dor.png",
+  technologies: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "DaisyUI",
+    "Better Auth",
+  ],
+  liveUrl: "https://bazardor-nu-gold.vercel.app/",
+  githubUrl: "https://github.com/Naajatnoor/bazar_dor",
+  challenges:
+    "Organizing product and category information, presenting price changes clearly, and maintaining a responsive user experience while handling authentication, product details, and loading states.",
+  futureImprovements:
+    "Historical price charts, price alerts for selected products, and expanded market price data to help users compare prices over time.",
+  features: [
+    "Daily essential product price tracking",
+    "Product browsing and category filtering",
+    "Product price details and market-wise pricing",
+    "Minimum, maximum, and average price information",
+    "Sorting products by price",
+    "Email and password authentication",
+    "Google and GitHub social authentication",
+    "Protected product detail pages",
+    "User profile management",
+    "Toast notifications and loading skeletons",
+    "Responsive design and custom 404 page",
+  ],
+  learning:
+    "Strengthened my understanding of Next.js App Router, reusable React components, TypeScript, REST API integration, responsive UI development, and authentication using Better Auth.",
+  year: "2026",
+  developer: "Solo",
+  status: "Frontend",
+},
+  {
     title: "Workout Log",
     category: "Web Application",
     description:
@@ -313,10 +352,6 @@ export default function Projects() {
                   <h3 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-blue-300 sm:text-xl">
                     {project.title}
                   </h3>
-
-                  <span className="text-xs tabular-nums text-zinc-600">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                 </div>
 
                 <p className="mb-5 flex-1 text-sm leading-7 text-zinc-400">

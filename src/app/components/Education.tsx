@@ -1,23 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, CalendarDays, MapPin, BookOpen } from "lucide-react";
+import {
+  GraduationCap,
+  CalendarDays,
+  MapPin,
+  BookOpen,
+} from "lucide-react";
 
 const education = [
   {
     degree: "Bachelor of Science in Computer Science & Engineering",
     institution: "Leading University",
     location: "Sylhet, Bangladesh",
-    duration: "2024 – 2028",
+    duration: "2024 – 2028 (Expected)",
     status: "Currently Studying",
+    semester: "2nd Year · 5th Semester",
+    cgpa: "CGPA: 3.89 / 4.00",
     description:
-      "Building a strong foundation in computer science, programming, software development, and problem-solving.",
-    courses: [
-      "Data Structures & Algorithms",
-      "Object-Oriented Programming",
-      "Database Management",
-      "Web Development",
-    ],
+      "Currently pursuing my undergraduate degree in Computer Science and Engineering, building a strong foundation in programming, Data Structures, Algorithms, and Object-Oriented Programming (Java).",
+    courses: ["Structured Programming", "C++","Data Structures", "Algorithms"],
+    currentStudy: "Currently studying Object-Oriented Programming (Java).",
   },
 ];
 
@@ -104,18 +107,30 @@ export default function Education() {
                     {item.location}
                   </div>
 
-                  {/* <p className="mt-5 text-sm leading-7 text-zinc-400 sm:text-base">
+                  {/* Academic information */}
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <span className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-zinc-300 sm:text-sm">
+                      {item.semester}
+                    </span>
+
+                    <span className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-zinc-300 sm:text-sm">
+                      {item.cgpa}
+                    </span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="mt-5 text-sm leading-7 text-zinc-400 sm:text-base">
                     {item.description}
-                  </p> */}
+                  </p>
 
                   {/* Relevant coursework */}
                   <div className="mt-6 border-t border-white/10 pt-5">
-                    {/* <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold text-zinc-200">
+                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold text-zinc-200">
                       <BookOpen size={17} className="text-blue-400" />
-                      Relevant Coursework & Interests
-                    </h4> */}
+                      Relevant Coursework
+                    </h4>
 
-                    {/* <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {item.courses.map((course) => (
                         <span
                           key={course}
@@ -124,7 +139,11 @@ export default function Education() {
                           {course}
                         </span>
                       ))}
-                    </div> */}
+                    </div>
+
+                    <p className="mt-3 text-xs leading-6 text-zinc-500">
+                      {item.currentStudy}
+                    </p>
                   </div>
                 </div>
               </motion.article>
